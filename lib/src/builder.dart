@@ -10,10 +10,10 @@ typedef SideDrawerIndexBuilder = Function(
     BuildContext context, int index, bool selected);
 
 abstract class SideDrawerBuilder<ItemType, IdType> {
-  MenuController? _menuController;
+  DMenuController? _menuController;
   SideDrawer<IdType>? _drawer;
 
-  MenuController? get menuController => _menuController;
+  DMenuController? get menuController => _menuController;
 
   SideDrawer<IdType>? get drawer => _drawer;
 
