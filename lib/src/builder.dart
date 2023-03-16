@@ -25,7 +25,7 @@ abstract class SideDrawerBuilder<ItemType, IdType> {
 
   IdType? get selectedId => menuController?.value;
 
-  set(SideDrawer<IdType> drawer, MenuController? menuController) {
+  set(SideDrawer<IdType> drawer, DMenuController? menuController) {
     this._menuController = menuController;
     this._drawer = drawer;
   }
