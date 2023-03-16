@@ -392,7 +392,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
 
   @override
   void initState() {
-    MenuController? controller =
+    DMenuController? controller =
         DrawerScaffold.getControllerFor(context, this.widget);
     controller?.value = widget.selectedItemId;
     super.initState();
@@ -406,7 +406,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
   @override
   void didUpdateWidget(SideDrawer<T> oldWidget) {
     if (oldWidget.selectedItemId != widget.selectedItemId) {
-      MenuController? controller =
+      DMenuController? controller =
           DrawerScaffold.getControllerFor(context, this.widget);
       controller?.value = widget.selectedItemId;
     }
@@ -414,7 +414,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
     super.didUpdateWidget(oldWidget);
   }
 
-  Widget createMenuItems(MenuController? menuController) {
+  Widget createMenuItems(DMenuController? menuController) {
     widget.itemBuilder.set(widget, menuController);
     return Container(
       alignment: widget.alignment,
@@ -432,7 +432,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
     );
   }
 
-  Widget createDrawer(MenuController? menuController) {
+  Widget createDrawer(DMenuController? menuController) {
     List<Widget> widgets = [];
     if (widget.headerView != null) {
       widgets.add(Container(
@@ -463,7 +463,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
                 EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
           )));
     }
-    MenuController controller = DrawerScaffold.currentController(context);
+    DMenuController controller = DrawerScaffold.currentController(context);
     return Transform(
       transform: Matrix4.translationValues(
         widget.slide
@@ -519,7 +519,7 @@ class _SideDrawerState<T> extends State<SideDrawer<T>>
             }
           }
 
-          MenuController? controller =
+          DMenuController? controller =
               DrawerScaffold.getControllerFor(context, this.widget);
 
           return Container(
