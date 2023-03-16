@@ -393,7 +393,7 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
               if (startDx == -1) return;
 
               double dx = (details.globalPosition.dx - startDx);
-              MenuController menuController =
+              DMenuController menuController =
                   menuControllers![focusDrawerIndex];
               if (menuController._drawer.direction == Direction.right) {
                 dx = -dx;
