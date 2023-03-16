@@ -4,7 +4,7 @@ import 'side_drawer.dart';
 import '../src/utils.dart';
 
 typedef Widget DrawerScaffoldBuilder(
-    BuildContext context, MenuController? menuController);
+    BuildContext context, DMenuController? menuController);
 
 /// a Scaffold wrapper
 class DrawerScaffold extends StatefulWidget {
@@ -94,7 +94,7 @@ class DrawerScaffold extends StatefulWidget {
   @override
   _DrawerScaffoldState createState() => new _DrawerScaffoldState();
 
-  static MenuController currentController(BuildContext context,
+  static DMenuController currentController(BuildContext context,
       {bool nullOk = true}) {
     final _DrawerScaffoldState? result =
         context.findAncestorStateOfType<_DrawerScaffoldState>();
@@ -106,7 +106,7 @@ class DrawerScaffold extends StatefulWidget {
     ]);
   }
 
-  static MenuController? getControllerFor(
+  static DMenuController? getControllerFor(
       BuildContext context, SideDrawer drawer,
       {bool nullOk = true}) {
     final _DrawerScaffoldState? result =
@@ -167,8 +167,8 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
     super.didUpdateWidget(oldWidget as DrawerScaffold);
   }
 
-  MenuController createController<T>(SideDrawer<T> d) {
-    MenuController controller = dcreateController(
+  DMenuController createController<T>(SideDrawer<T> d) {
+    DMenuController controller = dcreateController(
       context,
       d,
       this,
@@ -205,9 +205,9 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
     }
   }
 
-  MenuController dcreateController<T>(BuildContext context, SideDrawer<T> d,
+  DMenuController dcreateController<T>(BuildContext context, SideDrawer<T> d,
       TickerProvider vsync, Function(double) onAnimated) {
-    MenuController controller = MenuController(
+    DMenuController controller = DMenuController(
       d,
       onAnimated,
       context: context,
@@ -451,7 +451,7 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
   }
 
   zoomAndSlideContent(Widget content, [bool isDrawer = false]) {
-    MenuController menuController = this.menuControllers![focusDrawerIndex];
+    DMenuController menuController = this.menuControllers![focusDrawerIndex];
 
     SideDrawer drawer = widget.drawers![focusDrawerIndex];
 
@@ -535,8 +535,8 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
     );
   }
 
-  MenuController get _controller => menuControllers![focusDrawerIndex];
-  MenuController? _getControllerFor(SideDrawer drawer) {
+  DMenuController get _controller => menuControllers![focusDrawerIndex];
+  DMenuController? _getControllerFor(SideDrawer drawer) {
     final index = widget.drawers?.indexOf(drawer);
     if (index != null && index >= 0) return menuControllers?[index];
     return null;
@@ -559,7 +559,7 @@ class DrawerScaffoldMenuController extends StatefulWidget {
 
 class DrawerScaffoldMenuControllerState
     extends State<DrawerScaffoldMenuController> {
-  MenuController? menuController;
+  DMenuController? menuController;
 
   @override
   void initState() {
@@ -584,7 +584,7 @@ class DrawerScaffoldMenuControllerState
     super.dispose();
   }
 
-  MenuController? getMenuController(BuildContext context,
+  DMenuController? getMenuController(BuildContext context,
       [Direction? direction = Direction.left]) {
     final scaffoldState =
         context.findAncestorStateOfType<_DrawerScaffoldState>()!;
@@ -631,7 +631,7 @@ class Screen {
       this.enableGestures = true});
 }
 
-class MenuController extends ChangeNotifier {
+class DMenuController extends ChangeNotifier {
   final TickerProvider vsync;
   final AnimationController _animationController;
   final Function(double) onAnimated;
@@ -655,7 +655,7 @@ class MenuController extends ChangeNotifier {
 
   double get slidePercent => _slidePercent;
   double get scalePercent => _scalePercent;
-  MenuController(this._drawer, this.onAnimated,
+  DMenuController(this._drawer, this.onAnimated,
       {required this.vsync, BuildContext? context})
       : this.duration = _drawer.duration ?? const Duration(milliseconds: 250),
         _animationController = new AnimationController(vsync: vsync) {
@@ -753,7 +753,7 @@ class MenuController extends ChangeNotifier {
 }
 
 class DrawerScaffoldController {
-  List<MenuController>? _menuControllers;
+  List<DMenuController>? _menuControllers;
 
   late ValueChanged<int> _setFocus;
 
