@@ -122,7 +122,7 @@ class DrawerScaffold extends StatefulWidget {
 
 class _DrawerScaffoldState<T> extends State<DrawerScaffold>
     with TickerProviderStateMixin {
-  List<MenuController>? menuControllers;
+  List<DMenuController>? menuControllers;
   // Curve scaleDownCurve = new Interval(0.0, 0.3, curve: Curves.easeOut);
   // Curve scaleUpCurve = new Interval(0.0, 1.0, curve: Curves.easeOut);
   // Curve slideOutCurve = new Interval(0.0, 1.0, curve: Curves.easeOut);
