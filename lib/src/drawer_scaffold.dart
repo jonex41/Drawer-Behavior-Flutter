@@ -279,7 +279,7 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
             elevation: appBar.elevation,
             
             iconTheme: appBar.iconTheme,
-            textTheme: appBar.textTheme,
+            
             primary: appBar.primary,
             centerTitle: appBar.centerTitle,
             titleSpacing: appBar.titleSpacing,
