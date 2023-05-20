@@ -284,7 +284,7 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
             centerTitle: appBar.centerTitle,
             titleSpacing: appBar.titleSpacing,
             toolbarHeight: appBar.toolbarHeight,
-            backwardsCompatibility: appBar.backwardsCompatibility,
+          
             foregroundColor: appBar.foregroundColor,
             leadingWidth: appBar.leadingWidth,
             shadowColor: appBar.shadowColor,
