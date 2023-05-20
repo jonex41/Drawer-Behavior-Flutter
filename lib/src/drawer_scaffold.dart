@@ -277,7 +277,7 @@ class _DrawerScaffoldState<T> extends State<DrawerScaffold>
             flexibleSpace: appBar.flexibleSpace,
             bottom: appBar.bottom,
             elevation: appBar.elevation,
-            brightness: appBar.brightness,
+            
             iconTheme: appBar.iconTheme,
             textTheme: appBar.textTheme,
             primary: appBar.primary,
